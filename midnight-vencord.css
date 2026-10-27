@@ -1,0 +1,203 @@
+/**
+ * @name midnight (Legcord Native Frame Match)
+ * @description a dark, customizable discord theme tuned for dark monochrome setups.
+ * @author refact0r
+ * @version 2.1.1
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/midnight-discord
+ * @source https://github.com/refact0r/midnight-discord/blob/master/themes/midnight.theme.css
+ * @authorId 508863359777505290
+ * @authorLink https://www.refact0r.dev
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+    /* font options */
+    --font: 'JetBrainsMono Nerd Font'; /* change to '' for default discord font */
+    --code-font: 'JetBrainsMono Nerd Font'; /* change to '' for default discord font */
+    font-weight: 800; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+
+    /* sizes */
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 1px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+    /* animation/transition options */
+    --animations: off; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar */
+    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar */
+    --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title */
+    --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color */
+
+    /* window controls - disabled to avoid window controls overlaying native bar */
+    --custom-window-controls: off; 
+    --window-control-size: 14px; 
+
+    /* dms button options */
+    --custom-dms-icon: custom; 
+    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg'); 
+    --dms-icon-svg-size: 90%; 
+    --dms-icon-color-before: var(--icon-subtle); 
+    --dms-icon-color-after: var(--white); 
+    --custom-dms-background: color; 
+    --dms-background-image-url: url(''); 
+    --dms-background-image-size: cover; 
+    --dms-background-color: linear-gradient(135deg, #8bd5ca, #c6a0f6); 
+
+    /* background image options */
+    --background-image: off; 
+    --background-image-url: url(''); 
+
+    /* transparency/blur options */
+    --transparency-tweaks: off; 
+    --remove-bg-layer: off; 
+    --panel-blur: off; 
+    --blur-amount: 12px; 
+    --bg-floating: var(--bg-3); 
+
+    /* chatbar options */
+    --custom-chatbar: off; 
+    --chatbar-height: 47px; 
+
+    /* other options */
+    --small-user-panel: on; 
+}
+
+/* modified color palette for dark monochrome / neutral slate setup */
+:root {
+    --colors: on; 
+
+    /* pure monochrome text scale */
+    --text-0: #e0e0e0; 
+    --text-1: #e0e0e0; 
+    --text-2: #c4c4c4; 
+    --text-3: #a0a0a0; 
+    --text-4: #666666; 
+    --text-5: #404040; 
+
+    /* background layers - neutral deep grays matching terminal setup */
+    --bg-1: #181818; 
+    --bg-2: #1b1b1b; 
+    --bg-3: #161616; 
+    --bg-4: #141414; 
+
+    --hover: rgba(255, 255, 255, 0.04); 
+    --active: rgba(255, 255, 255, 0.08); 
+    --active-2: rgba(255, 255, 255, 0.12); 
+    --message-hover: rgba(0, 0, 0, 0.15); 
+
+    /* subtle accent highlights (for buttons, live indicator, etc.) */
+    --accent-1: #6cbda9;
+    --accent-2: #ab8bd1; 
+    --accent-3: #6cbda9; 
+    --accent-4: #6cbda9; 
+    --accent-5: #9f7ed1; 
+    --accent-new: #6cbda9; 
+    /* hover gradients */
+    --mention: linear-gradient(to right, color-mix(in hsl, #6cbda9, transparent 90%) 40%, transparent); 
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, #6cbda9, transparent 95%) 40%, transparent); 
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); 
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); 
+
+    /* status indicator colors */
+    --online: #a6da95; 
+    --dnd: #ed8796; 
+    --idle: #eed49f; 
+    --streaming: #c6a0f6; 
+    --offline: #5b6078; 
+
+    /* border colors */
+    --border-light: rgba(255, 255, 255, 0.03); 
+    --border: rgba(255, 255, 255, 0.07); 
+    --border-hover: rgba(255, 255, 255, 0.15); 
+    --button-border: rgba(255, 255, 255, 0.05); 
+
+    /* base palette definitions */
+    --red-1: #f48fb1;
+    --red-2: #ed8796;
+    --red-3: #db2556;
+    --red-4: #d20f39;
+    --red-5: #b8002e;
+
+    --green-1: #c3e88d;
+    --green-2: #a6da95;
+    --green-3: #81c784;
+    --green-4: #40a258;
+    --green-5: #2e7d32;
+
+    --blue-1: #b4befe;
+    --blue-2: #8bd5ca;
+    --blue-3: #7dc4e4;
+    --blue-4: #89b4fa;
+    --blue-5: #74c7ec;
+
+    --yellow-1: #ffe082;
+    --yellow-2: #eed49f;
+    --yellow-3: #e5c07b;
+    --yellow-4: #f5a97f;
+    --yellow-5: #e64553;
+
+    --purple-1: #f5bde6;
+    --purple-2: #c6a0f6;
+    --purple-3: #b4befe;
+    --purple-4: #a6e3a1;
+    --purple-5: #89dceb;
+}
+
+/* Fix Legcord Window Elements */
+[class*="typeWindows_"],
+[class*="typeMacOS_"] {
+    display: none !important;
+}
+
+[class*="wordmark_"] {
+    display: none !important;
+}
+
+[class*="titleBar_"] {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: var(--gap) !important;
+    background: transparent !important;
+}
+::selection {
+    background: color-mix(in srgb, #545454 28%, transparent) !important; /* soft mint tint */
+    color: var(--text-1) !important; /* keep the text light so it stays readable */
+}
+
+/* ---------- Hide Nitro / Shop / Quests promos ---------- */
+[class*="channel_"]:has(a[href="/store"]),   /* Nitro tab */
+[class*="channel_"]:has(a[href="/shop"]),    /* Shop tab */
+[class*="channel_"]:has(a[href="/quests"]),  /* Quests tab */
+button[aria-label="Send a gift"],
+[class*="upsell"],
+[class*="premiumPromo"],
+[class*="premiumBanner"],
+[class*="nitroUpsell"] {
+    display: none !important;
+}
+
+/* ---------- Animated profile stuff ---------- */
+[class*="profileEffects_"],      /* profile effects */
+[class*="avatarDecoration_"],    /* avatar decorations */
+[class*="nameplate"] {           /* animated nameplates in lists */
+    display: none !important;
+}
+
+/* Hide profile banners everywhere (remove this block if you want static banners) */
+[class*="profileBanner"],
+[class*="bannerSVGWrapper"] {
+    display: none !important;
+}
+
+/* ---------- Theme animations ---------- */
+/* In the body {} block, set --animations: off; to turn off midnight's transitions */
